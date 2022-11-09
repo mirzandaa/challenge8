@@ -1,0 +1,101 @@
+    <!-- Include header -->
+    <%- include("partial/_head") %> 
+
+    <!-- Main Site -->
+    <main id="main">
+        <div class="container">
+            <a href="/getFormAdd">
+                <button type="submit" class="btn btn-primary">Add Employee</button>
+            </a>
+            <br>
+            <br>
+              <!-- form handling -->
+              <form action="/" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let i = 0; i < data.length; i++) { %> 
+                        <tr>
+                            <td><%= data[i].dataValues.id %> </td>
+                            <td><%= data[i].dataValues.name  %> </td>
+                            <td><%= data[i].dataValues.email  %> </td>
+                            <td><%= data[i].dataValues.mobile  %> </td>
+                            <td>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editEmployeeModal" data-bs-id="<%= data[i].dataValues.id %>">
+                              Edit
+                            </button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal" data-bs-id="<%= data[i].dataValues.id %>">
+                                Delete
+                            </button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailEmployeeModal" data-bs-id="<%= data[i].dataValues.id %>">
+                              Detail
+                            </button>
+                            </td>
+                            <% } %>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+            <!-- edit modal -->
+            <div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-labelledby="editEmployeeModal" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="editEmployeeModal">Edit Employee</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button id="updateEmployeeBtn" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+         <!-- detail modal -->
+         <div class="modal fade" id="detailEmployeeModal" tabindex="-1" aria-labelledby="detailEmployeeModal" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="detailEmployeeModal">Detail</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+         <!-- delete modal -->
+         <div class="modal fade" id="deleteEmployeeModal" tabindex="-1" aria-labelledby="deleteEmployeeModal" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="deleteEmployeeModal">Delete ?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" id="submitDeleteBtn" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+                </div>
+            </div>
+            </div>
+        </div>         
+    </main>
+</body>
+<%- include("partial/_script")  %> 
+<%- include("partial/_footer") %> 

@@ -1,0 +1,43 @@
+<div class="modal-body">
+    <!-- form handling -->
+    <form action ="/addEmployee "method="POST" >
+      <div class="new_user">
+          <div class="form-group">
+              <label><b>ID</b></label>
+              <br>
+              <span><%= data.dataValues.id %> </span>
+          </div>
+          <br>
+          <div class="form-group">
+              <label><b>Name</b></label>
+              <br>
+              <span><%= data.dataValues.name  %></span>
+          </div>
+          <br>
+          <div class="form-group">
+              <label><b>Email</b></label>
+              <br>
+              <span><%= data.dataValues.email  %></span>
+          </div>
+          <br>
+          <div class="form-group">
+              <label><b>Mobile</b></label>
+              <br>
+              <span><%= data.dataValues.mobile %> </span>
+          </div>
+          <br>
+          <div class="form-group">
+              <label><b>Birthdate</b></label>
+              <br>
+              <span><%= data.dataValues.birthdate %></span>
+          </div>
+          <br>
+          <div class="form-group">
+              <label><b>Address</b></label>
+              <br>
+              <span><%= data.dataValues.address %> </span>
+          </div>
+      </div>
+      
+    </form>
+  </div>

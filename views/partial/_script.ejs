@@ -1,0 +1,82 @@
+<script>
+    $(document).ready( function () {
+    $('.table').DataTable();
+    } );
+
+    // Edit Modal
+    var editModal = document.getElementById("editEmployeeModal")
+    editModal.addEventListener("show.bs.modal", async function (event) {
+        const empId = event.relatedTarget.dataset.bsId
+        const emp = await $.ajax({
+            url: 'http://localhost:3000/updateEmployee/' + empId,
+            method: 'get'
+        })
+        const modalBody = this.querySelector(".modal-body")
+        if (modalBody.childNodes.length > 1) {
+        modalBody.removeChild(modalBody.lastElementChild)
+        }
+        modalBody.insertAdjacentHTML('beforeend', emp)
+        console.log(modalBody)
+
+        $('#updateEmployeeBtn').click(async function(event) {
+            await setTimeout(async function() {
+                   window.location.reload();
+              },0)
+            await $.ajax({
+                url: 'http://localhost:3000/updateEmployee/' + empId,
+                method: 'put',
+                data: {
+                    name: $('#updateNameInput').val().trim(),
+                    email: $('#updateEmailInput').val().trim(),
+                    mobile: $('#updateMobileInput').val().trim(),
+                    birthdate: $('#updateBirthInput').val().trim(),
+                    address: $("#updateAddressInput").val().trim()
+                }
+        })
+      })
+    })
+
+    // Detail Modal
+    var detailModal = document.getElementById('detailEmployeeModal')
+    detailModal.addEventListener('show.bs.modal', async function (event) {
+        const empId = event.relatedTarget.dataset.bsId
+        const emp = await $.ajax({
+            url: 'http://localhost:3000/detailEmployee/' + empId,
+            method: 'get'
+        })
+        const modalBody = this.querySelector('.modal-body')
+        if (modalBody.childNodes.length > 1) {
+            modalBody.removeChild(modalBody.lastElementChild)
+        }
+        modalBody.insertAdjacentHTML('beforeend', emp)
+        console.log(modalBody)
+    })
+
+    // delete modal
+    var deleteModal = document.getElementById('deleteEmployeeModal')
+    deleteModal.addEventListener('show.bs.modal', async function (event) {
+    const empId = event.relatedTarget.dataset.bsId
+    const emp = await $.ajax({
+        url: 'http://localhost:3000/getDeleteEmployee/' + empId,
+        method: 'get'
+    })
+    const modalBody = this.querySelector('.modal-body')
+    if (modalBody.childNodes.length > 1) {
+        modalBody.removeChild(modalBody.lastElementChild)
+    }
+    modalBody.insertAdjacentHTML('beforeend', emp)
+    console.log(modalBody)
+
+        $('#submitDeleteBtn').click(async function(event) {
+            console.log(empId)
+            await setTimeout(async function() {
+                   window.location.reload();
+              },0)
+            await $.ajax({
+                url: 'http://localhost:3000/deleteEmployee/' + empId,
+                method: 'delete'
+            })
+        })
+    })
+    
+</script>

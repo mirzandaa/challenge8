@@ -1,0 +1,37 @@
+<%- include("partial/_head") %> 
+<br>
+<div class="col-lg-8 col-xs-12 col-centered">
+  <a href="/">
+    <i class="fa-solid fa-arrow-left fa-xl" style="margin-left: 50px ; margin-bottom: 79px;"></i>
+  </a>
+</div>
+<div class="container">
+    <div class="row justify-content-center text-center">
+  <div class="col-md-4">
+    <form action="/addEmployee" method="post">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" name="name" id="floatingName" placeholder="Name" autocomplete="off" autofocus>
+        <label for="floatingUsername">Name</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" name="email" id="floatingEmail" placeholder="Email" autocomplete="off" autofocus>
+        <label for="floatingUsername">Email Address</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="number" class="form-control" name="mobile" id="floatingUsername" placeholder="Mobile" autocomplete="off" autofocus>
+        <label for="floatingUsername">Mobile</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="date" class="form-control" name="birthdate" id="floatingUsername" placeholder="Bithdate" autocomplete="off" autofocus>
+        <label for="floatingUsername">Birthdate</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" name="address" id="floatingUsername" placeholder="address" autocomplete="off" autofocus>
+        <label for="floatingUsername">Address</label>
+      </div>
+      <input type="submit" class="btn btn-primary" value="Add Employee">
+    </form>
+  </div>
+    </div>
+  </div>
+<%- include("partial/_footer") %> 

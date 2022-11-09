@@ -1,0 +1,38 @@
+<div class="new_user">
+    <div class="form-group">
+        <label>ID</label>
+        <br>
+        <input type="text" name="id" value="<%= data.dataValues.id %> " disabled>
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Name</label>
+        <br>
+        <input type="text" id="updateNameInput" name="name" placeholder="Place your name here" value="<%= data.dataValues.name.trim() %> ">
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Email</label>
+        <br>
+        <input type="text" id="updateEmailInput" name="email" placeholder="example@gmail.com" value="<%= data.dataValues.email.trim() %> ">
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Mobile</label>
+        <br>
+        <input type="text" id="updateMobileInput" inputmode="numeric" name="mobile" placeholder="08123123123" value="<%= data.dataValues.mobile.trim() %> ">
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Birthdate</label>
+        <br>
+        <input type="text" id="updateBirthInput"  name="birthdate" placeholder="YYYY-MM-DD" value="<%= data.dataValues.birthdate.trim() %> ">
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Address</label>
+        <br>
+        <input type="text"  id="updateAddressInput" name="address" placeholder="" value="<%= data.dataValues.address.trim() %> " >
+    </div>
+    <br>
+</div>
